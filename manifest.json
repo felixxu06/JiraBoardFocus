@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Focus",
+  "version": "1.0",
+  "description": "a chrome extension to simplify your jira borad, make your jira board more focus on your tasks",
+  "action": {
+    "default_popup": "index.html"
+  },
+  "permissions": ["activeTab", "scripting", "storage"],
+
+  "content_scripts": [
+    {
+      "js": ["./scripts/backend.js"],
+      "matches": ["https://*.atlassian.net/*"],
+      "run_at": "document_start",
+      "inject": "script",
+      "require": ["chrome.runtime"]
+    }
+  ]
+}
